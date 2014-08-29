@@ -19,6 +19,7 @@
 
 header.oSearchInTopNav>nav[role=navigation] {
 	padding-top: 0;
+	margin-bottom: 10px;
 }
 
 .oNavTablist>li.logo-container {
@@ -27,13 +28,19 @@ header.oSearchInTopNav>nav[role=navigation] {
 
 .oNavTablist>li.nav-item a {
 	border-radius: 4px;
-	padding: 12px 5px 7px;
+	padding: 9px 5px 7px;
 	background: #00AEEC;
 	color: #fff;
-	margin: 0 3px 4px 3px;}
+	margin: 4px 3px 4px 3px;}
+	.oNavTablist>li.nav-item a:hover {
+		color: white;
+		background: #33BEF0;}
 	.oNavTablist>li.nav-item.isCurrent a {
 		background: #fff;
 		color: #00AEEC;}
+		.oNavTablist>li.nav-item.isCurrent a span.msg-cnt {
+			font-size: 14px;
+			color: #ade4f8;}
 .oNavTablist>li.nav-item-form-box > div {
 	margin-bottom: 10px;
 	height: 23px;}
@@ -42,7 +49,7 @@ header.oSearchInTopNav>nav[role=navigation] {
 		margin: 0;}
 		.oNavTablist > li.nav-item-form-box > div form input {
 			color: #545454;
-			padding: 6px 5px 6px 25px;
+			padding: 6px 5px 6px 30px;
 			width: 355px;
 			border-radius: 3px;
 			font-size: 14px;
@@ -56,19 +63,27 @@ header.oSearchInTopNav>nav[role=navigation] {
 	.oNavContainer div.nav-links-container {
 		height: 47px;
 		float: left;
-		padding-top: 15px;}
+		padding-top: 13px;}
 		.oNavContainer div.nav-links-container a {
 			float: left;}
 			.oNavContainer div.nav-links-container a:last-child {
 				margin-top: 0;
-				margin-left: 5px;
-				margin-right: 5px;}
-			.oNavContainer div.nav-links-container a span {
-				width: 26px;
-				height: 26px;
-				background-size: 100%;
-				margin: 0 2px;
-				display: block;}
+				margin-left: 3px;
+				margin-right: 3px;}
+			.oNavContainer div.nav-links-container a > div {
+				cursor: pointer;
+				border: none;
+				padding: 2px;
+				border-radius: 3px;}
+				.oNavContainer div.nav-links-container a > div:hover {
+					background: #33BEF0;}
+				.oNavContainer div.nav-links-container a span {
+					width: 26px;
+					height: 26px;
+					cursor: pointer;
+					background-size: 100%;
+					margin: 3px 2px 0;
+					display: block;}
 	.oNavContainer div#simpleCompanySelector {
 		position: relative;
 		float: left;}
@@ -79,7 +94,6 @@ header.oSearchInTopNav>nav[role=navigation] {
 			padding-left: 5px;
 			margin-left: 6px;}
 			.oCompanyDropdown>.oDropdownValue span.portrait {
-				background: url(../img/Users-shipra-PortraitUrl_50.jpg) no-repeat center center;
 				width: 34px;
 				height: 34px;
 				display: block;
@@ -97,6 +111,7 @@ header.oSearchInTopNav>nav[role=navigation] {
 					top: 16px;
 					right: 520px;}
 		.oNavContainer div#simpleCompanySelector ul.oDropdownList {
+			opacity: 1;
 			position: absolute;
 			top: 50px;
 			right: 10px;}

@@ -52,7 +52,7 @@
 				portrait_url: this._photoURL
 			};
 			addStyleInfo(this._cssFiles);
-			addScripts(this._scriptFiles);
+			// addScripts(this._scriptFiles);
 			return this;
 		},
 
@@ -100,6 +100,7 @@
 					self._contacts[contacts[i].username] = contacts[i];
 				}
 			});
+			$('.oNavTablist>li.nav-item#nav-item-messages').addClass("isCurrent");
 		},
 
 		/**
@@ -212,7 +213,7 @@
 		 */
 		scrollHandler: function() {
 			scrollTimer = null;
-			var headerBottom = 111,
+			var headerBottom = 51,
 				$leftSideBar = $('div.oFakeMessageLeftSideBar'),
 				scrollTop = $(window).scrollTop(),
 				leftSideBarMarginTop = 0,

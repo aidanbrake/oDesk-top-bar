@@ -17,6 +17,7 @@
       "js": [
             "assets/js/jquery-1.10.2.min.js",
             "assets/js/common.js",
+            "assets/js/odesk-base.js",
             "assets/js/odesk-nav.js",
             "assets/js/odesk-message.js",
             "assets/js/content_script.js"
