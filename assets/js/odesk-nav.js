@@ -52,20 +52,69 @@
 						$('<span/>', {class: 'full-name'}).text(oDesk._firstname + " " + oDesk._lastname)
 					),
 				$ul_oDropdownList = $('<ul/>', {class: 'oDropdownList hide'}).append(
+						$('<li/>', {class: 'status online isCurrent'}).append(
+								$('<span/>', {class:'mark online'}),
+								$('<span/>', {class: 'status-text'}).text('Online'),
+								$('<span/>', {class: 'checkmark'})
+							),
+						$('<li/>', {class: 'status busy'}).append(
+								$('<span/>', {class:'busy mark'}),
+								$('<span/>', {class: 'status-text'}).text('Busy'),
+								$('<span/>', {class: 'checkmark'})
+							),
+						$('<li/>', {class: 'status offline'}).append(
+								$('<span/>', {class:'offline mark'}),
+								$('<span/>', {class: 'status-text'}).text('Offline'),
+								$('<span/>', {class: 'checkmark'})
+							),
+						$('<li/>', {class: 'devider'}).text('Acount'),
 						$('<li/>', {
 									title: (oDesk._firstname + " " + oDesk._lastname)
 								}).append(
-							$('<a/>', {href: '#', class: 'oDropdownItem isCurrent'}).append(
-									$('<img/>', {
-													class: 'oCompanyLogoTiny', 
-													src: '/images/REL58799ecf3628ba78c08344ee6f294ad9/svg-icons/user.svg',
-													alt: oDesk._firstname + " " + oDesk._lastname
-												}),
-									$('<span/>')
-										.text(oDesk._firstname + " " + oDesk._lastname)
-										.css('margin-left', '10px')
-								)
-							),
+									$('<a/>', {href: 'https://www.odesk.com/UserSettins/Profile', class: 'oDropdownItem isCurrent'}).append(
+											$('<img/>', {
+															class: 'oCompanyLogoTiny', 
+															src: '/images/REL58799ecf3628ba78c08344ee6f294ad9/svg-icons/user.svg',
+															alt: oDesk._firstname + " " + oDesk._lastname
+														}),
+											$('<span/>')
+												.text(oDesk._firstname + " " + oDesk._lastname)
+												.css('margin-left', '10px'),
+											$('<span/>', {class: 'link-info'}).append(
+													$('<span/>', {class: 'blue'}).text('Settings'),
+													$('<span/>', {class: ''}).text(' - '),
+													$('<span/>', {class: 'blue'}).text('Profile')
+												)
+										)
+									),
+						$('<li/>', {
+									title: ('Design Agency')
+								}).append(
+									$('<a/>', {href: '#', class: 'oDropdownItem'}).append(
+											$('<img/>', {
+															class: 'oCompanyLogoTiny', 
+															src: '/images/REL58799ecf3628ba78c08344ee6f294ad9/svg-icons/user.svg',
+															alt: 'Design Agency'
+														}),
+											$('<span/>')
+												.text("Design Agency")
+												.css('margin-left', '10px')
+										)
+									),
+						$('<li/>', {
+									title: ('Client Company')
+								}).append(
+									$('<a/>', {href: '#', class: 'oDropdownItem'}).append(
+											$('<img/>', {
+															class: 'oCompanyLogoTiny', 
+															src: '/images/REL58799ecf3628ba78c08344ee6f294ad9/svg-icons/user.svg',
+															alt: 'Client Company'
+														}),
+											$('<span/>')
+												.text("Client Company")
+												.css('margin-left', '10px')
+										)
+									),
 						$('<li/>', {class: 'oDropdownFooter unselectable'}).append(
 								$('<span/>', {class: 'oNavMutedText'}).text(oDesk._username),
 								$('<a/>', {class: 'oLogout', href: '/logout'}).text('Log out')
@@ -91,6 +140,21 @@
 
 			if ($('header.oHeader').children().length == 0)
 				$nav.appendTo($('header.oHeader'));
+		},
+
+		renderLoadingIcon: function() {
+			if($('aside.oIndicatorMsg').length == 0) {
+				var string = '<aside class="oIndicatorMsg">Request is taking a bit longer than expected...</aside>'
+				$(string).appendTo($('body'));
+			}
+		},
+
+		showLoadingIcon: function() {
+			$('aside.oIndicatorMsg').show();
+		},
+
+		hideLoadingIcon: function() {
+			$('aside.oIndicatorMsg').hide();
 		},
 
 		init: function() {
@@ -174,11 +238,19 @@
 			$('div#simpleCompanySelector').click(function() {
 				event.preventDefault();
 				$('.oDropdownList').toggleClass("hide");
+
+				if ($('.oDropdownList').hasClass("hide")) {
+					$('.oCompanyDropdown>.oDropdownValue span.portrait').removeClass("red-border");
+				} else {
+					$('.oCompanyDropdown>.oDropdownValue span.portrait').addClass("red-border");
+				}
 			});
 
 			$(document).click(function() {
-				if ( ($(event.target).parents("#simpleCompanySelector").length == 0) && ($(event.target).attr('id') != "simpleCompanySelector") )
+				if ( ($(event.target).parents("#simpleCompanySelector").length == 0) && ($(event.target).attr('id') != "simpleCompanySelector") ) {
 					$('.oDropdownList').addClass("hide");
+					$('.oCompanyDropdown>.oDropdownValue span.portrait').removeClass("red-border");
+				}
 			});
 		}
 	}

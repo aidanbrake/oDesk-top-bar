@@ -103,6 +103,8 @@ header.oSearchInTopNav>nav[role=navigation] {
 				margin-top: -6px;
 				margin-right: 5px;
 				border-radius: 50%;}
+				.oCompanyDropdown>.oDropdownValue span.portrait.red-border {
+					border-color: #e96c48;}
 				.oCompanyDropdown>.oDropdownValue span.portrait + span.full-name {
 					margin-top: 5px;
 					display: flex;}
@@ -115,3 +117,75 @@ header.oSearchInTopNav>nav[role=navigation] {
 			position: absolute;
 			top: 50px;
 			right: 10px;}
+			.oNavContainer div#simpleCompanySelector ul.oDropdownList li.status {
+				font-size: 15px;
+				font-weight: normal;
+				height: 37px;
+				color: #7a7a7a;
+				padding: 8px 10px;
+				border: none;
+				position: relative;
+				cursor: pointer;
+				background: white;}
+				.oNavContainer div#simpleCompanySelector ul.oDropdownList li.status::after {
+					width: 20px;
+					height: 20px;
+					background: black;
+					position: absolute;}
+				.oNavContainer div#simpleCompanySelector ul.oDropdownList li.status.isCurrent {
+					font-weight: bold;}
+					.oNavContainer div#simpleCompanySelector ul.oDropdownList li.status.isCurrent::after {
+						display: block;}
+					.oNavContainer div#simpleCompanySelector ul.oDropdownList li.status.isCurrent span.checkmark {
+						display: block;}
+				div#simpleCompanySelector ul.oDropdownList li.status:hover {
+					background: #eefafe;}
+				.oNavContainer div#simpleCompanySelector ul.oDropdownList li.status span.mark {
+					width: 20px;
+					height: 20px;
+					display: block;
+					float: left;
+					border-radius: 50%;
+					margin-right: 10px;}
+					.oNavContainer div#simpleCompanySelector ul.oDropdownList li.status span.mark.online {
+						background: #7ed25c;}
+					.oNavContainer div#simpleCompanySelector ul.oDropdownList li.status span.mark.busy {
+						background: #eb6c41;}
+					.oNavContainer div#simpleCompanySelector ul.oDropdownList li.status span.mark.offline {
+						background: #f5f5f5;}
+				.oNavContainer div#simpleCompanySelector ul.oDropdownList li.status span.status-text {
+					float: left;}
+				.oNavContainer div#simpleCompanySelector ul.oDropdownList li.status span.checkmark {
+					float: left;
+					margin-left: 10px;
+					display: none;
+					width: 20px;
+					background: url("../img/checkmark-grey.png");
+					background-position: center;
+					background-repeat: no-repeat;
+					background-size: 100%;
+					height: 20px;}
+				.oNavContainer div#simpleCompanySelector ul.oDropdownList li > a.oDropdownItem.isCurrent {
+					padding-bottom: 3px;}
+					.oNavContainer div#simpleCompanySelector ul.oDropdownList li > a.oDropdownItem span.link-info {
+						display: block;
+						padding-left: 45px;
+						font-size: 12px;}
+						.oNavContainer div#simpleCompanySelector ul.oDropdownList li > a.oDropdownItem span.link-info span {
+							margin-right: 5px;
+							margin-left: 5px;}
+							.oNavContainer div#simpleCompanySelector ul.oDropdownList li > a.oDropdownItem span.link-info span.blue {
+								margin-right: 0;
+								margin-left: 0;
+								color: #0096ff;}
+
+
+			.oNavContainer div#simpleCompanySelector ul.oDropdownList li.devider {
+				border-top: 1px solid #d4d4d0;
+				padding-left: 10px;
+				padding-top: 6px;
+				padding-bottom: 1px;
+				font-size: 11px;
+				text-transform: uppercase;
+				font-weight: bold;
+				color: #82828a;}
