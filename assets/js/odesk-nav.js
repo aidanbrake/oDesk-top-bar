@@ -23,9 +23,9 @@
 			var $nav = $('<nav/>', {"role": "navigation", "class": "oPageCentered oNavInline"}),
 				$ul = $('<ul/>', {class: 'oNavTablist'}),
 				$li_logo = $('<li/>', {class:'logo-container'}).append($('<a/>', {href: '#'}).append('<span/>', {class: 'logo'})),
-				$li_jobs = $('<li/>', {class: 'nav-item'}).append($('<a/>', {href: '/e/jobs/', class: 'oNavTab isCurrent'}).text('Jobs')),
-				$li_freelancers = $('<li/>', {class: 'nav-item'}).append($('<a/>', {href: '/e/my-contractors/hired/', class: 'oNavTab'}).text('Freelancers')),
-				$li_reports = $('<li/>', {class: 'nav-item'}).append($('<a/>', {href: '/reports/company/summary/', class: 'oNavTab'}).text('Reports')),
+				$li_jobs = $('<li/>', {class: 'nav-item', id:'nav-item-jobs'}).append($('<a/>', {href: '/e/jobs/', class: 'oNavTab isCurrent'}).text('Jobs')),
+				$li_freelancers = $('<li/>', {class: 'nav-item', id:'nav-item-freelancers'}).append($('<a/>', {href: '/e/my-contractors/hired/', class: 'oNavTab'}).text('Freelancers')),
+				$li_reports = $('<li/>', {class: 'nav-item', id: 'nav-item-reports'}).append($('<a/>', {href: '/reports/company/summary/', class: 'oNavTab'}).text('Reports')),
 				$li_messages = $('<li/>', {class: 'nav-item', id: 'nav-item-messages'}).append($('<a/>', {href: '/mc/', class: 'oNavTab'}).text('Messages').append($('<span/>', {class:'msg-cnt'}).text('(10)'))),
 				$li_navItemFormBox = $('<li/>', {class: 'nav-item-form-box'}),
 				$div_searchFormContainer = $('<div/>', {class: 'search-form-container'}),
@@ -69,7 +69,8 @@
 							),
 						$('<li/>', {class: 'devider'}).text('Acount'),
 						$('<li/>', {
-									title: (oDesk._firstname + " " + oDesk._lastname)
+									title: (oDesk._firstname + " " + oDesk._lastname),
+									class: 'sub-link'
 								}).append(
 									$('<a/>', {href: 'https://www.odesk.com/UserSettins/Profile', class: 'oDropdownItem isCurrent'}).append(
 											$('<img/>', {
@@ -85,10 +86,12 @@
 													$('<span/>', {class: ''}).text(' - '),
 													$('<span/>', {class: 'blue'}).text('Profile')
 												)
-										)
+										),
+									$('<span/>', {class: 'checkmark'})
 									),
 						$('<li/>', {
-									title: ('Design Agency')
+									title: ('Design Agency'),
+									class: 'sub-link'
 								}).append(
 									$('<a/>', {href: '#', class: 'oDropdownItem'}).append(
 											$('<img/>', {
@@ -102,7 +105,8 @@
 										)
 									),
 						$('<li/>', {
-									title: ('Client Company')
+									title: ('Client Company'),
+									class: 'sub-link'
 								}).append(
 									$('<a/>', {href: '#', class: 'oDropdownItem'}).append(
 											$('<img/>', {
@@ -140,6 +144,15 @@
 
 			if ($('header.oHeader').children().length == 0)
 				$nav.appendTo($('header.oHeader'));
+
+			//	White color mark for selected navigation
+			var curURL = window.location.href;
+			$('.oNavTablist>li.nav-item.isCurrent').removeClass("isCurrent");
+			if(curURL.indexOf("/jobs") > 0) {
+				$('.oNavTablist>li.nav-item#nav-item-jobs').addClass("isCurrent");
+			} else if(curURL.indexOf("://www.odesk.com/mc") > -1) {
+				$('.oNavTablist>li.nav-item#nav-item-messages').addClass("isCurrent");
+			}
 		},
 
 		renderLoadingIcon: function() {

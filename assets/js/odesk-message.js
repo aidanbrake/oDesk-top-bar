@@ -100,7 +100,8 @@
 					self._contacts[contacts[i].username] = contacts[i];
 				}
 			});
-			$('.oNavTablist>li.nav-item#nav-item-messages').addClass("isCurrent");
+			// $('.oNavTablist>li.nav-item#nav-item-messages').addClass("isCurrent");
+			$('footer.oFooter').css('position', 'fixed');
 		},
 
 		/**
@@ -213,7 +214,7 @@
 		 */
 		scrollHandler: function() {
 			scrollTimer = null;
-			var headerBottom = 51,
+			var headerBottom = 51 - 32,
 				$leftSideBar = $('div.oFakeMessageLeftSideBar'),
 				scrollTop = $(window).scrollTop(),
 				leftSideBarMarginTop = 0,
